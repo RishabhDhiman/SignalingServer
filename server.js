@@ -11,7 +11,7 @@ var users = {};
 
 var pc;
 
-console.log("Server Running");
+console.log("Server Running at "+process.env.OPENSHIFT_NODEJS_PORT);
 
 //when a user connects to our sever
 wss.on("connection", function (connection) {
