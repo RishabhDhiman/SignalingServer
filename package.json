@@ -2,6 +2,7 @@
   "name": "Node",
   "version": "1.0.0",
   "dependencies": {
+    "arraylist": "^0.1.0",
     "express": "latest",
     "rtcpeerconnection": "^8.4.0",
     "stun": "^2.1.0",
