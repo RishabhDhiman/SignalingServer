@@ -11,8 +11,6 @@ var users = {};
 
 var pc;
 
-console.log("Server Running at "+process.env.OPENSHIFT_NODEJS_PORT);
-
 //when a user connects to our sever
 wss.on("connection", function (connection) {
   console.log("User connected");
@@ -54,21 +52,18 @@ wss.on("connection", function (connection) {
   });
 
   connection.on("close", function () {
-    if (users[connection.roomName] && users[connection.roomName].userCount == 2) {
-      users[connection.roomName].userCount = 0;
-      if (connection.isInitiator) {
+    if (users[connection.roomName] && users[connection.roomName]) {
+      if (users[connection.roomName].users[1]) {
         sendTo(users[connection.roomName].users[1].connection, {
           type: "leave",
         });
-        users[connection.roomName].users[1].connection.close();
-        delete users[connection.roomName];
-      } else {
+      }
+      if (users[connection.roomName].users[0]) {
         sendTo(users[connection.roomName].users[0].connection, {
           type: "leave",
         });
-        users[connection.roomName].users[0].connection.close();
-        delete users[connection.roomName];
       }
+      delete users[connection.roomName];
     }
   });
 
