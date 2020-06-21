@@ -11,6 +11,8 @@ var users = {};
 
 var pc;
 
+console.log("Server Running");
+
 //when a user connects to our sever
 wss.on("connection", function (connection) {
   console.log("User connected");
