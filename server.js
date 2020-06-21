@@ -2,7 +2,7 @@
 var WebSocketServer = require("ws").Server;
 var ArrayList = require("arraylist");
 var wrtc = require("wrtc");
-var wss = new WebSocketServer({ port: process.env.OPENSHIFT_NODEJS_PORT|| 9090 });
+var wss = new WebSocketServer({ port: 8080 });
 var RTCPeerConnection = wrtc.RTCPeerConnection;
 var RTCSessionDescription = wrtc.RTCSessionDescription;
 var users = {};
