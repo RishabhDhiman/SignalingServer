@@ -1,5 +1,5 @@
 {
-  "name": "Node",
+  "name": "signalingserver",
   "version": "1.0.0",
   "dependencies": {
     "arraylist": "^0.1.0",
@@ -8,5 +8,20 @@
     "stun": "^2.1.0",
     "wrtc": "^0.4.5",
     "ws": "^7.3.0"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RishabhDhiman/SignalingServer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RishabhDhiman/SignalingServer/issues"
+  },
+  "homepage": "https://github.com/RishabhDhiman/SignalingServer#readme",
+  "description": ""
 }
