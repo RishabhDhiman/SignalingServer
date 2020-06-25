@@ -63,6 +63,7 @@ wss.on("connection", function (connection) {
           type: "leave",
         });
       }
+      console.log("Room Empty");
       delete users[connection.roomName];
     }
   });
