@@ -6,10 +6,14 @@ var wss = new WebSocketServer({ port: process.env.PORT||9090 });
 var RTCPeerConnection = wrtc.RTCPeerConnection;
 var RTCSessionDescription = wrtc.RTCSessionDescription;
 var users = {};
+const got = require("got");
 
 //var list = new ArrayList();
 
 var pc;
+
+
+keepScriptRunning();
 
 //when a user connects to our sever
 wss.on("connection", function (connection) {
@@ -178,4 +182,13 @@ function finish(connection) {
 
 function sendTo(connection, message) {
   connection.send(JSON.stringify(message));
+}
+
+function keepScriptRunning(){
+  got("https://earthquake-notifier-server.herokuapp.com/").then((response)=>{
+    console.log("keeping script running")
+    setTimeout(keepScriptRunning, 1740000);
+  }).catch((error)=>{
+    setTimeout(keepScriptRunning, 1740000);
+  });
 }
